@@ -1,0 +1,1498 @@
+{
+  "schema_version": 1,
+  "name": "OXI E16 -> CQ-12T (factory default)",
+  "controller": "OXI Instruments E16",
+  "target": "Allen & Heath CQ-12T",
+  "input_channel": 1,
+  "relative_mode": "twos_complement",
+  "scene_count": 128,
+  "notes": "E16 pages transmit on channel == page number; slot S turn=CC(15+S), push=Note(35+S). Fully remappable.",
+  "pages": [
+    {
+      "index": 0,
+      "channel": 1,
+      "name": "Input Faders -> Main LR",
+      "controls": [
+        {
+          "slot": 1,
+          "label": "Ch 1",
+          "turn": {
+            "cc": 16,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip1>LR"
+          },
+          "push": {
+            "note": 36,
+            "action": "mute",
+            "target": "Ip1",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 2,
+          "label": "Ch 2",
+          "turn": {
+            "cc": 17,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip2>LR"
+          },
+          "push": {
+            "note": 37,
+            "action": "mute",
+            "target": "Ip2",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 3,
+          "label": "Ch 3",
+          "turn": {
+            "cc": 18,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip3>LR"
+          },
+          "push": {
+            "note": 38,
+            "action": "mute",
+            "target": "Ip3",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 4,
+          "label": "Ch 4",
+          "turn": {
+            "cc": 19,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip4>LR"
+          },
+          "push": {
+            "note": 39,
+            "action": "mute",
+            "target": "Ip4",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 5,
+          "label": "Ch 5",
+          "turn": {
+            "cc": 20,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip5>LR"
+          },
+          "push": {
+            "note": 40,
+            "action": "mute",
+            "target": "Ip5",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 6,
+          "label": "Ch 6",
+          "turn": {
+            "cc": 21,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip6>LR"
+          },
+          "push": {
+            "note": 41,
+            "action": "mute",
+            "target": "Ip6",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 7,
+          "label": "Ch 7",
+          "turn": {
+            "cc": 22,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip7>LR"
+          },
+          "push": {
+            "note": 42,
+            "action": "mute",
+            "target": "Ip7",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 8,
+          "label": "Ch 8",
+          "turn": {
+            "cc": 23,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip8>LR"
+          },
+          "push": {
+            "note": 43,
+            "action": "mute",
+            "target": "Ip8",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 9,
+          "label": "Ch 9",
+          "turn": {
+            "cc": 24,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip9>LR"
+          },
+          "push": {
+            "note": 44,
+            "action": "mute",
+            "target": "Ip9",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 10,
+          "label": "Ch 10",
+          "turn": {
+            "cc": 25,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip10>LR"
+          },
+          "push": {
+            "note": 45,
+            "action": "mute",
+            "target": "Ip10",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 11,
+          "label": "Ch 11",
+          "turn": {
+            "cc": 26,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip11>LR"
+          },
+          "push": {
+            "note": 46,
+            "action": "mute",
+            "target": "Ip11",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 12,
+          "label": "Ch 12",
+          "turn": {
+            "cc": 27,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip12>LR"
+          },
+          "push": {
+            "note": 47,
+            "action": "mute",
+            "target": "Ip12",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 13,
+          "label": "ST 1",
+          "turn": {
+            "cc": 28,
+            "mode": "absolute",
+            "action": "level",
+            "target": "St1>LR"
+          },
+          "push": {
+            "note": 48,
+            "action": "mute",
+            "target": "St1",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 14,
+          "label": "ST 2",
+          "turn": {
+            "cc": 29,
+            "mode": "absolute",
+            "action": "level",
+            "target": "St2>LR"
+          },
+          "push": {
+            "note": 49,
+            "action": "mute",
+            "target": "St2",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 15,
+          "label": "USB",
+          "turn": {
+            "cc": 30,
+            "mode": "absolute",
+            "action": "level",
+            "target": "USB>LR"
+          },
+          "push": {
+            "note": 50,
+            "action": "mute",
+            "target": "USB",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 16,
+          "label": "BT",
+          "turn": {
+            "cc": 31,
+            "mode": "absolute",
+            "action": "level",
+            "target": "BT>LR"
+          },
+          "push": {
+            "note": 51,
+            "action": "mute",
+            "target": "BT",
+            "behavior": "toggle"
+          }
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "channel": 2,
+      "name": "Input Pan -> Main LR",
+      "controls": [
+        {
+          "slot": 1,
+          "label": "Ch 1",
+          "turn": {
+            "cc": 16,
+            "mode": "absolute",
+            "action": "pan",
+            "target": "Ip1"
+          },
+          "push": {
+            "note": 36,
+            "action": "mute",
+            "target": "Ip1",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 2,
+          "label": "Ch 2",
+          "turn": {
+            "cc": 17,
+            "mode": "absolute",
+            "action": "pan",
+            "target": "Ip2"
+          },
+          "push": {
+            "note": 37,
+            "action": "mute",
+            "target": "Ip2",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 3,
+          "label": "Ch 3",
+          "turn": {
+            "cc": 18,
+            "mode": "absolute",
+            "action": "pan",
+            "target": "Ip3"
+          },
+          "push": {
+            "note": 38,
+            "action": "mute",
+            "target": "Ip3",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 4,
+          "label": "Ch 4",
+          "turn": {
+            "cc": 19,
+            "mode": "absolute",
+            "action": "pan",
+            "target": "Ip4"
+          },
+          "push": {
+            "note": 39,
+            "action": "mute",
+            "target": "Ip4",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 5,
+          "label": "Ch 5",
+          "turn": {
+            "cc": 20,
+            "mode": "absolute",
+            "action": "pan",
+            "target": "Ip5"
+          },
+          "push": {
+            "note": 40,
+            "action": "mute",
+            "target": "Ip5",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 6,
+          "label": "Ch 6",
+          "turn": {
+            "cc": 21,
+            "mode": "absolute",
+            "action": "pan",
+            "target": "Ip6"
+          },
+          "push": {
+            "note": 41,
+            "action": "mute",
+            "target": "Ip6",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 7,
+          "label": "Ch 7",
+          "turn": {
+            "cc": 22,
+            "mode": "absolute",
+            "action": "pan",
+            "target": "Ip7"
+          },
+          "push": {
+            "note": 42,
+            "action": "mute",
+            "target": "Ip7",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 8,
+          "label": "Ch 8",
+          "turn": {
+            "cc": 23,
+            "mode": "absolute",
+            "action": "pan",
+            "target": "Ip8"
+          },
+          "push": {
+            "note": 43,
+            "action": "mute",
+            "target": "Ip8",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 9,
+          "label": "Ch 9",
+          "turn": {
+            "cc": 24,
+            "mode": "absolute",
+            "action": "pan",
+            "target": "Ip9"
+          },
+          "push": {
+            "note": 44,
+            "action": "mute",
+            "target": "Ip9",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 10,
+          "label": "Ch 10",
+          "turn": {
+            "cc": 25,
+            "mode": "absolute",
+            "action": "pan",
+            "target": "Ip10"
+          },
+          "push": {
+            "note": 45,
+            "action": "mute",
+            "target": "Ip10",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 11,
+          "label": "Ch 11",
+          "turn": {
+            "cc": 26,
+            "mode": "absolute",
+            "action": "pan",
+            "target": "Ip11"
+          },
+          "push": {
+            "note": 46,
+            "action": "mute",
+            "target": "Ip11",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 12,
+          "label": "Ch 12",
+          "turn": {
+            "cc": 27,
+            "mode": "absolute",
+            "action": "pan",
+            "target": "Ip12"
+          },
+          "push": {
+            "note": 47,
+            "action": "mute",
+            "target": "Ip12",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 13,
+          "label": "ST 1",
+          "turn": {
+            "cc": 28,
+            "mode": "absolute",
+            "action": "pan",
+            "target": "St1"
+          },
+          "push": {
+            "note": 48,
+            "action": "mute",
+            "target": "St1",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 14,
+          "label": "ST 2",
+          "turn": {
+            "cc": 29,
+            "mode": "absolute",
+            "action": "pan",
+            "target": "St2"
+          },
+          "push": {
+            "note": 49,
+            "action": "mute",
+            "target": "St2",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 15,
+          "label": "USB",
+          "turn": {
+            "cc": 30,
+            "mode": "absolute",
+            "action": "pan",
+            "target": "USB"
+          },
+          "push": {
+            "note": 50,
+            "action": "mute",
+            "target": "USB",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 16,
+          "label": "BT",
+          "turn": {
+            "cc": 31,
+            "mode": "absolute",
+            "action": "pan",
+            "target": "BT"
+          },
+          "push": {
+            "note": 51,
+            "action": "mute",
+            "target": "BT",
+            "behavior": "toggle"
+          }
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "channel": 3,
+      "name": "Output / FX / DCA Masters",
+      "controls": [
+        {
+          "slot": 1,
+          "label": "Main LR",
+          "turn": {
+            "cc": 16,
+            "mode": "absolute",
+            "action": "level",
+            "target": "MainLR"
+          },
+          "push": {
+            "note": 36,
+            "action": "mute",
+            "target": "MainLR",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 2,
+          "label": "Out 1",
+          "turn": {
+            "cc": 17,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Out1"
+          },
+          "push": {
+            "note": 37,
+            "action": "mute",
+            "target": "Out1",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 3,
+          "label": "Out 2",
+          "turn": {
+            "cc": 18,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Out2"
+          },
+          "push": {
+            "note": 38,
+            "action": "mute",
+            "target": "Out2",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 4,
+          "label": "Out 3",
+          "turn": {
+            "cc": 19,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Out3"
+          },
+          "push": {
+            "note": 39,
+            "action": "mute",
+            "target": "Out3",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 5,
+          "label": "Out 4",
+          "turn": {
+            "cc": 20,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Out4"
+          },
+          "push": {
+            "note": 40,
+            "action": "mute",
+            "target": "Out4",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 6,
+          "label": "Out 5",
+          "turn": {
+            "cc": 21,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Out5"
+          },
+          "push": {
+            "note": 41,
+            "action": "mute",
+            "target": "Out5",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 7,
+          "label": "Out 6",
+          "turn": {
+            "cc": 22,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Out6"
+          },
+          "push": {
+            "note": 42,
+            "action": "mute",
+            "target": "Out6",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 8,
+          "label": "FX1 Ret",
+          "turn": {
+            "cc": 23,
+            "mode": "absolute",
+            "action": "level",
+            "target": "FX1in"
+          },
+          "push": {
+            "note": 43,
+            "action": "mute",
+            "target": "FX1",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 9,
+          "label": "FX2 Ret",
+          "turn": {
+            "cc": 24,
+            "mode": "absolute",
+            "action": "level",
+            "target": "FX2in"
+          },
+          "push": {
+            "note": 44,
+            "action": "mute",
+            "target": "FX2",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 10,
+          "label": "FX3 Ret",
+          "turn": {
+            "cc": 25,
+            "mode": "absolute",
+            "action": "level",
+            "target": "FX3in"
+          },
+          "push": {
+            "note": 45,
+            "action": "mute",
+            "target": "FX3",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 11,
+          "label": "FX4 Ret",
+          "turn": {
+            "cc": 26,
+            "mode": "absolute",
+            "action": "level",
+            "target": "FX4in"
+          },
+          "push": {
+            "note": 46,
+            "action": "mute",
+            "target": "FX4",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 12,
+          "label": "DCA 1",
+          "turn": {
+            "cc": 27,
+            "mode": "absolute",
+            "action": "level",
+            "target": "DCA1"
+          },
+          "push": {
+            "note": 47,
+            "action": "mute",
+            "target": "DCA1",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 13,
+          "label": "DCA 2",
+          "turn": {
+            "cc": 28,
+            "mode": "absolute",
+            "action": "level",
+            "target": "DCA2"
+          },
+          "push": {
+            "note": 48,
+            "action": "mute",
+            "target": "DCA2",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 14,
+          "label": "DCA 3",
+          "turn": {
+            "cc": 29,
+            "mode": "absolute",
+            "action": "level",
+            "target": "DCA3"
+          },
+          "push": {
+            "note": 49,
+            "action": "mute",
+            "target": "DCA3",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 15,
+          "label": "DCA 4",
+          "turn": {
+            "cc": 30,
+            "mode": "absolute",
+            "action": "level",
+            "target": "DCA4"
+          },
+          "push": {
+            "note": 50,
+            "action": "mute",
+            "target": "DCA4",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 16,
+          "label": "Scene/SK1",
+          "turn": {
+            "cc": 31,
+            "mode": "absolute",
+            "action": "scene"
+          },
+          "push": {
+            "note": 51,
+            "action": "softkey",
+            "mode": "tap",
+            "target": "1"
+          }
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "channel": 4,
+      "name": "Input Sends -> FX1",
+      "controls": [
+        {
+          "slot": 1,
+          "label": "Ch 1",
+          "turn": {
+            "cc": 16,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip1>FX1"
+          },
+          "push": {
+            "note": 36,
+            "action": "mute",
+            "target": "Ip1",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 2,
+          "label": "Ch 2",
+          "turn": {
+            "cc": 17,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip2>FX1"
+          },
+          "push": {
+            "note": 37,
+            "action": "mute",
+            "target": "Ip2",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 3,
+          "label": "Ch 3",
+          "turn": {
+            "cc": 18,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip3>FX1"
+          },
+          "push": {
+            "note": 38,
+            "action": "mute",
+            "target": "Ip3",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 4,
+          "label": "Ch 4",
+          "turn": {
+            "cc": 19,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip4>FX1"
+          },
+          "push": {
+            "note": 39,
+            "action": "mute",
+            "target": "Ip4",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 5,
+          "label": "Ch 5",
+          "turn": {
+            "cc": 20,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip5>FX1"
+          },
+          "push": {
+            "note": 40,
+            "action": "mute",
+            "target": "Ip5",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 6,
+          "label": "Ch 6",
+          "turn": {
+            "cc": 21,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip6>FX1"
+          },
+          "push": {
+            "note": 41,
+            "action": "mute",
+            "target": "Ip6",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 7,
+          "label": "Ch 7",
+          "turn": {
+            "cc": 22,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip7>FX1"
+          },
+          "push": {
+            "note": 42,
+            "action": "mute",
+            "target": "Ip7",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 8,
+          "label": "Ch 8",
+          "turn": {
+            "cc": 23,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip8>FX1"
+          },
+          "push": {
+            "note": 43,
+            "action": "mute",
+            "target": "Ip8",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 9,
+          "label": "Ch 9",
+          "turn": {
+            "cc": 24,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip9>FX1"
+          },
+          "push": {
+            "note": 44,
+            "action": "mute",
+            "target": "Ip9",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 10,
+          "label": "Ch 10",
+          "turn": {
+            "cc": 25,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip10>FX1"
+          },
+          "push": {
+            "note": 45,
+            "action": "mute",
+            "target": "Ip10",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 11,
+          "label": "Ch 11",
+          "turn": {
+            "cc": 26,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip11>FX1"
+          },
+          "push": {
+            "note": 46,
+            "action": "mute",
+            "target": "Ip11",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 12,
+          "label": "Ch 12",
+          "turn": {
+            "cc": 27,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip12>FX1"
+          },
+          "push": {
+            "note": 47,
+            "action": "mute",
+            "target": "Ip12",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 13,
+          "label": "ST 1",
+          "turn": {
+            "cc": 28,
+            "mode": "absolute",
+            "action": "level",
+            "target": "St1>FX1"
+          },
+          "push": {
+            "note": 48,
+            "action": "mute",
+            "target": "St1",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 14,
+          "label": "ST 2",
+          "turn": {
+            "cc": 29,
+            "mode": "absolute",
+            "action": "level",
+            "target": "St2>FX1"
+          },
+          "push": {
+            "note": 49,
+            "action": "mute",
+            "target": "St2",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 15,
+          "label": "USB",
+          "turn": {
+            "cc": 30,
+            "mode": "absolute",
+            "action": "level",
+            "target": "USB>FX1"
+          },
+          "push": {
+            "note": 50,
+            "action": "mute",
+            "target": "USB",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 16,
+          "label": "BT",
+          "turn": {
+            "cc": 31,
+            "mode": "absolute",
+            "action": "level",
+            "target": "BT>FX1"
+          },
+          "push": {
+            "note": 51,
+            "action": "mute",
+            "target": "BT",
+            "behavior": "toggle"
+          }
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "channel": 5,
+      "name": "Input Sends -> FX2",
+      "controls": [
+        {
+          "slot": 1,
+          "label": "Ch 1",
+          "turn": {
+            "cc": 16,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip1>FX2"
+          },
+          "push": {
+            "note": 36,
+            "action": "mute",
+            "target": "Ip1",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 2,
+          "label": "Ch 2",
+          "turn": {
+            "cc": 17,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip2>FX2"
+          },
+          "push": {
+            "note": 37,
+            "action": "mute",
+            "target": "Ip2",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 3,
+          "label": "Ch 3",
+          "turn": {
+            "cc": 18,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip3>FX2"
+          },
+          "push": {
+            "note": 38,
+            "action": "mute",
+            "target": "Ip3",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 4,
+          "label": "Ch 4",
+          "turn": {
+            "cc": 19,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip4>FX2"
+          },
+          "push": {
+            "note": 39,
+            "action": "mute",
+            "target": "Ip4",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 5,
+          "label": "Ch 5",
+          "turn": {
+            "cc": 20,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip5>FX2"
+          },
+          "push": {
+            "note": 40,
+            "action": "mute",
+            "target": "Ip5",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 6,
+          "label": "Ch 6",
+          "turn": {
+            "cc": 21,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip6>FX2"
+          },
+          "push": {
+            "note": 41,
+            "action": "mute",
+            "target": "Ip6",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 7,
+          "label": "Ch 7",
+          "turn": {
+            "cc": 22,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip7>FX2"
+          },
+          "push": {
+            "note": 42,
+            "action": "mute",
+            "target": "Ip7",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 8,
+          "label": "Ch 8",
+          "turn": {
+            "cc": 23,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip8>FX2"
+          },
+          "push": {
+            "note": 43,
+            "action": "mute",
+            "target": "Ip8",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 9,
+          "label": "Ch 9",
+          "turn": {
+            "cc": 24,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip9>FX2"
+          },
+          "push": {
+            "note": 44,
+            "action": "mute",
+            "target": "Ip9",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 10,
+          "label": "Ch 10",
+          "turn": {
+            "cc": 25,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip10>FX2"
+          },
+          "push": {
+            "note": 45,
+            "action": "mute",
+            "target": "Ip10",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 11,
+          "label": "Ch 11",
+          "turn": {
+            "cc": 26,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip11>FX2"
+          },
+          "push": {
+            "note": 46,
+            "action": "mute",
+            "target": "Ip11",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 12,
+          "label": "Ch 12",
+          "turn": {
+            "cc": 27,
+            "mode": "absolute",
+            "action": "level",
+            "target": "Ip12>FX2"
+          },
+          "push": {
+            "note": 47,
+            "action": "mute",
+            "target": "Ip12",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 13,
+          "label": "ST 1",
+          "turn": {
+            "cc": 28,
+            "mode": "absolute",
+            "action": "level",
+            "target": "St1>FX2"
+          },
+          "push": {
+            "note": 48,
+            "action": "mute",
+            "target": "St1",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 14,
+          "label": "ST 2",
+          "turn": {
+            "cc": 29,
+            "mode": "absolute",
+            "action": "level",
+            "target": "St2>FX2"
+          },
+          "push": {
+            "note": 49,
+            "action": "mute",
+            "target": "St2",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 15,
+          "label": "USB",
+          "turn": {
+            "cc": 30,
+            "mode": "absolute",
+            "action": "level",
+            "target": "USB>FX2"
+          },
+          "push": {
+            "note": 50,
+            "action": "mute",
+            "target": "USB",
+            "behavior": "toggle"
+          }
+        },
+        {
+          "slot": 16,
+          "label": "BT",
+          "turn": {
+            "cc": 31,
+            "mode": "absolute",
+            "action": "level",
+            "target": "BT>FX2"
+          },
+          "push": {
+            "note": 51,
+            "action": "mute",
+            "target": "BT",
+            "behavior": "toggle"
+          }
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "channel": 6,
+      "name": "Scenes & Soft Keys",
+      "controls": [
+        {
+          "slot": 1,
+          "label": "Scene",
+          "turn": {
+            "cc": 16,
+            "mode": "absolute",
+            "action": "scene"
+          },
+          "push": {
+            "note": 36,
+            "action": "scene",
+            "mode": "fixed",
+            "target": "1"
+          }
+        },
+        {
+          "slot": 2,
+          "label": "Scene 2",
+          "push": {
+            "note": 37,
+            "action": "scene",
+            "mode": "fixed",
+            "target": "2"
+          }
+        },
+        {
+          "slot": 3,
+          "label": "Scene 3",
+          "push": {
+            "note": 38,
+            "action": "scene",
+            "mode": "fixed",
+            "target": "3"
+          }
+        },
+        {
+          "slot": 4,
+          "label": "Scene 4",
+          "push": {
+            "note": 39,
+            "action": "scene",
+            "mode": "fixed",
+            "target": "4"
+          }
+        },
+        {
+          "slot": 5,
+          "label": "Scene 5",
+          "push": {
+            "note": 40,
+            "action": "scene",
+            "mode": "fixed",
+            "target": "5"
+          }
+        },
+        {
+          "slot": 6,
+          "label": "Scene 6",
+          "push": {
+            "note": 41,
+            "action": "scene",
+            "mode": "fixed",
+            "target": "6"
+          }
+        },
+        {
+          "slot": 7,
+          "label": "Scene 7",
+          "push": {
+            "note": 42,
+            "action": "scene",
+            "mode": "fixed",
+            "target": "7"
+          }
+        },
+        {
+          "slot": 8,
+          "label": "Scene 8",
+          "push": {
+            "note": 43,
+            "action": "scene",
+            "mode": "fixed",
+            "target": "8"
+          }
+        },
+        {
+          "slot": 9,
+          "label": "Soft 1",
+          "push": {
+            "note": 44,
+            "action": "softkey",
+            "mode": "momentary",
+            "target": "1"
+          }
+        },
+        {
+          "slot": 10,
+          "label": "Soft 2",
+          "push": {
+            "note": 45,
+            "action": "softkey",
+            "mode": "momentary",
+            "target": "2"
+          }
+        },
+        {
+          "slot": 11,
+          "label": "Soft 3",
+          "push": {
+            "note": 46,
+            "action": "softkey",
+            "mode": "momentary",
+            "target": "3"
+          }
+        },
+        {
+          "slot": 12,
+          "label": "Soft 4",
+          "push": {
+            "note": 47,
+            "action": "softkey",
+            "mode": "momentary",
+            "target": "4"
+          }
+        },
+        {
+          "slot": 13,
+          "label": "Soft 5",
+          "push": {
+            "note": 48,
+            "action": "softkey",
+            "mode": "momentary",
+            "target": "5"
+          }
+        },
+        {
+          "slot": 14,
+          "label": "Soft 6",
+          "push": {
+            "note": 49,
+            "action": "softkey",
+            "mode": "momentary",
+            "target": "6"
+          }
+        },
+        {
+          "slot": 15,
+          "label": "Soft 7",
+          "push": {
+            "note": 50,
+            "action": "softkey",
+            "mode": "momentary",
+            "target": "7"
+          }
+        },
+        {
+          "slot": 16,
+          "label": "Soft 8",
+          "push": {
+            "note": 51,
+            "action": "softkey",
+            "mode": "momentary",
+            "target": "8"
+          }
+        }
+      ]
+    }
+  ]
+}

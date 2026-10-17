@@ -1,0 +1,6 @@
+# OXI-CQ Bridge core requires NOTHING beyond the Python standard library.
+# (http.server UI, socket TCP MIDI, simulator and tests are all stdlib.)
+#
+# Real USB / Bluetooth MIDI hardware I/O is OPTIONAL and only needed for
+# --input usb / --output usb.  Install it with:
+#     pip install -r requirements-hardware.txt

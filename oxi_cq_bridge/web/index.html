@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OXI-CQ Bridge</title>
+<style>
+  /* Mantra Productions palette: white / orange / dark-yellow, never red. */
+  :root{
+    --bg:#15120d; --panel:#211c15; --panel2:#2b2419; --line:#3a3123;
+    --orange:#ff9140; --orange-dim:#c96f2c; --gold:#d9a521; --gold-dim:#9c7a1e;
+    --white:#f6efe2; --muted:#9a8e78; --ok:#d9a521;
+    --shadow:0 2px 10px rgba(0,0,0,.45);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--white);
+    font:15px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;}
+  header{display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+    padding:14px 20px;background:linear-gradient(180deg,#241e15,#1b160f);
+    border-bottom:2px solid var(--orange-dim);box-shadow:var(--shadow);}
+  header h1{font-size:20px;margin:0;color:var(--orange);letter-spacing:.5px;
+    font-weight:700;}
+  header .sub{color:var(--muted);font-size:13px}
+  .pill{margin-left:auto;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .badge{padding:4px 11px;border-radius:999px;font-size:12px;font-weight:600;
+    border:1px solid var(--line);background:var(--panel);color:var(--gold)}
+  .badge.live{background:var(--gold);color:#1b160f;border-color:var(--gold)}
+  .badge.dry{background:var(--panel2);color:var(--orange)}
+  .badge.err{background:#3a2a12;color:var(--orange);border-color:var(--orange)}
+  main{max-width:1180px;margin:0 auto;padding:18px}
+  .tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+  .tab{padding:8px 14px;border-radius:9px;cursor:pointer;font-size:13px;
+    background:var(--panel);border:1px solid var(--line);color:var(--muted)}
+  .tab:hover{color:var(--white)}
+  .tab.active{background:var(--orange);color:#1b160f;border-color:var(--orange);
+    font-weight:700}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  @media(max-width:860px){.grid{grid-template-columns:repeat(2,1fr)}}
+  .tile{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:12px;min-height:148px;display:flex;flex-direction:column;gap:8px;
+    transition:box-shadow .12s,border-color .12s;position:relative}
+  .tile.flash{border-color:var(--orange);box-shadow:0 0 0 2px var(--orange-dim)}
+  .tile .slot{position:absolute;top:8px;right:10px;font-size:11px;color:var(--muted)}
+  .tile .lbl{font-weight:700;color:var(--white);font-size:15px}
+  .tile .tgt{font-size:11px;color:var(--gold);letter-spacing:.3px}
+  .meter{height:10px;border-radius:6px;background:var(--panel2);overflow:hidden;
+    border:1px solid var(--line)}
+  .meter>div{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--orange))}
+  .readout{font-size:12px;color:var(--muted);min-height:16px}
+  input[type=range]{width:100%;accent-color:var(--orange);margin:0}
+  .pushrow{display:flex;gap:8px;align-items:center;margin-top:auto}
+  .push{flex:1;padding:8px;border-radius:9px;border:1px solid var(--line);
+    background:var(--panel2);color:var(--white);cursor:pointer;font-size:13px;
+    font-weight:600;user-select:none}
+  .push:hover{border-color:var(--gold)}
+  .push.on{background:var(--orange);color:#1b160f;border-color:var(--orange)}
+  .push.active{background:var(--gold);color:#1b160f}
+  .cols{display:grid;grid-template-columns:1fr 340px;gap:16px;margin-top:18px}
+  @media(max-width:860px){.cols{grid-template-columns:1fr}}
+  .logwrap h3{margin:0 0 8px;color:var(--gold);font-size:14px}
+  .log{background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    padding:10px;height:420px;overflow:auto;font-size:12px}
+  .logrow{padding:6px 8px;border-bottom:1px solid var(--line)}
+  .logrow:last-child{border-bottom:none}
+  .logrow .d{color:var(--white)}
+  .logrow .h{color:var(--muted);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:11px;word-break:break-all}
+  .logrow.fail{background:#3a2a12}
+  .hint{color:var(--muted);font-size:12px;margin:4px 0 14px}
+  footer{color:var(--muted);font-size:12px;text-align:center;padding:16px}
+  a{color:var(--orange)}
+</style>
+</head>
+<body>
+<header>
+  <h1>OXI-CQ BRIDGE</h1>
+  <span class="sub" id="sub">OXI E16 &rarr; Allen &amp; Heath CQ-12T</span>
+  <div class="pill">
+    <span class="badge" id="b-out">output</span>
+    <span class="badge" id="b-conn">&mdash;</span>
+    <span class="badge" id="b-sent">sent 0</span>
+  </div>
+</header>
+<main>
+  <div class="tabs" id="tabs"></div>
+  <div class="hint" id="hint">Turn a slider or tap a button to drive the mixer.
+    In dry-run mode this panel is a virtual E16 for testing.</div>
+  <div class="cols">
+    <div>
+      <div class="grid" id="grid"></div>
+    </div>
+    <div class="logwrap">
+      <h3>Live activity</h3>
+      <div class="log" id="log"></div>
+    </div>
+  </div>
+</main>
+<footer>Mantra Productions &middot; OXI-CQ Bridge
+  <span id="ver"></span> &middot; palette: white / orange / gold</footer>
+
+<script>
+"use strict";
+let STATE=null, activePage=0;
+const $=id=>document.getElementById(id);
+
+async function loadState(){
+  const r=await fetch("/api/state"); STATE=await r.json();
+  $("ver").textContent="v"+STATE.app.version;
+  $("sub").textContent=STATE.app.controller+" → "+STATE.app.target;
+  renderTabs(); renderStatus(STATE.status); renderPage(activePage);
+  (STATE.log||[]).forEach(addLog);
+  (STATE.log||[]).forEach(applyDisplay);   // reflect last-known values
+}
+function renderTabs(){
+  const t=$("tabs"); t.innerHTML="";
+  STATE.mapping.pages.forEach(p=>{
+    const el=document.createElement("div");
+    el.className="tab"+(p.index===activePage?" active":"");
+    el.textContent=(p.index+1)+". "+p.name;
+    el.onclick=()=>{activePage=p.index;renderTabs();renderPage(p.index);};
+    t.appendChild(el);
+  });
+}
+function renderStatus(s){
+  const out=$("b-out"); out.textContent=s.output;
+  out.className="badge "+(String(s.output).toLowerCase().includes("dry")?"dry":"");
+  const c=$("b-conn");
+  if(s.error){c.className="badge err";c.textContent="error: "+s.error;}
+  else{c.className="badge "+(s.connected?"live":"");c.textContent=s.connected?"connected":"offline";}
+  $("b-sent").textContent="sent "+s.sent;
+}
+function tileId(pg,slot){return "t-"+pg+"-"+slot;}
+function renderPage(pg){
+  const page=STATE.mapping.pages.find(p=>p.index===pg); const g=$("grid"); g.innerHTML="";
+  page.slots.forEach(sl=>{
+    const d=document.createElement("div"); d.className="tile"; d.id=tileId(pg,sl.slot);
+    let html=`<span class="slot">#${sl.slot}</span><div class="lbl">${sl.label}</div>`;
+    if(sl.turn){
+      const act=sl.turn.action, tgt=sl.turn.target||act;
+      html+=`<div class="tgt">${act}: ${tgt}</div>
+        <div class="meter"><div class="mfill"></div></div>
+        <div class="readout">&mdash;</div>
+        <input type="range" min="0" max="127" value="${act==='pan'?64:0}" class="rng">`;
+    }
+    if(sl.push){
+      const p=sl.push; const lab=p.action==='mute'?'MUTE':(p.action==='scene'?'RECALL':(p.action==='softkey'?'SOFT KEY':'PRESS'));
+      html+=`<div class="pushrow"><div class="push" data-role="push">${lab}</div></div>`;
+    }
+    d.innerHTML=html;
+    if(sl.turn){
+      const rng=d.querySelector(".rng");
+      rng.addEventListener("input",()=>inject(pg,sl.slot,"turn",+rng.value));
+    }
+    if(sl.push){
+      const btn=d.querySelector(".push"), beh=(sl.push.behavior||"toggle"), mom=(sl.push.mode==="momentary");
+      btn.addEventListener("mousedown",()=>{btn.classList.add("active");inject(pg,sl.slot,"push",127);});
+      const up=()=>{btn.classList.remove("active"); if(mom) inject(pg,sl.slot,"push",0);};
+      btn.addEventListener("mouseup",up); btn.addEventListener("mouseleave",up);
+    }
+    g.appendChild(d);
+  });
+}
+async function inject(page,slot,role,value){
+  try{await fetch("/api/inject",{method:"POST",headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({page,slot,role,value})});}catch(e){}
+}
+function applyDisplay(rec){
+  if(rec.page!==activePage) {flashOtherPage(); return;}
+  const tile=$(tileId(rec.page,rec.slot)); if(!tile) return;
+  tile.classList.add("flash"); setTimeout(()=>tile.classList.remove("flash"),200);
+  const dsp=rec.display||{}, ro=tile.querySelector(".readout"), mf=tile.querySelector(".mfill");
+  if(ro) ro.textContent=rec.detail;
+  if(mf){
+    if(dsp.kind==="level"&&dsp.percent!=null) mf.style.width=dsp.percent+"%";
+    else if(dsp.kind==="pan"&&dsp.position!=null) mf.style.width=((dsp.position+100)/2)+"%";
+  }
+  if(dsp.kind==="mute"){
+    const b=tile.querySelector(".push"); if(b){b.classList.toggle("on",!!dsp.muted);}
+  }
+}
+let flashTimer=null;
+function flashOtherPage(){/* activity on a hidden page: keep log only */}
+function addLog(rec){
+  if(rec.type!=="dispatch") return;
+  const log=$("log"); const row=document.createElement("div");
+  row.className="logrow"+(rec.sent?"":" fail");
+  const time=new Date((rec.t||Date.now()/1000)*1000).toLocaleTimeString();
+  row.innerHTML=`<div class="d">${time} &middot; <b>${rec.label}</b> &mdash; ${rec.detail}`+
+    (rec.sent?"":" <em>(send failed)</em>")+`</div><div class="h">${rec.hex||""}</div>`;
+  log.insertBefore(row,log.firstChild);
+  while(log.children.length>120) log.removeChild(log.lastChild);
+}
+function connectStream(){
+  const es=new EventSource("/api/stream");
+  es.onmessage=e=>{
+    const msg=JSON.parse(e.data);
+    if(msg.type==="status") renderStatus(msg.status);
+    else if(msg.type==="dispatch"){ addLog(msg); applyDisplay(msg);
+      $("b-sent").textContent="sent "+((+$("b-sent").textContent.split(" ")[1]||0)+ (msg.sent?1:0)); }
+  };
+  es.onerror=()=>{/* browser auto-reconnects */};
+}
+loadState().then(connectStream);
+</script>
+</body>
+</html>
