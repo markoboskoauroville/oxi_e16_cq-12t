@@ -1,3 +1,7 @@
+
+
+## From the former README (9.11.2026)
+
 # OXI-CQ Bridge
 
 **Remote-control an Allen & Heath CQ-12T digital mixer from an OXI
